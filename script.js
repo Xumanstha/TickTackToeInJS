@@ -249,7 +249,8 @@ PlayersForm.addEventListener('submit', function (event) {
     Player2 = Player2Name.value;
     if (isValid) {
         alert("Game Start");
-        document.getElementById("GameArea").style.display = "block";
+        document.getElementById("GameArea").style.display = "flex";
+        // edocument.getElementById("GameArea").style.display = (el.style.display === "flex") ? "none" : "flex";
         PlayersForm.style.display = "none";
         Turn.innerHTML = `Your turn <span style="color:red">${Player1}</span>`;
         Player1Score.textContent = `${Player1} ${Score1}`;
@@ -298,7 +299,7 @@ function checkFinalWinner() {
 function HalfReset() {
     Round = 6;
     document.getElementById("FinalArea").style.display = "none";
-    document.getElementById("GameArea").style.display = "block";
+    document.getElementById("GameArea").style.display = "flex";
     Score1 = 0;
     Score2 = 0;
     subReset();
