@@ -54,14 +54,17 @@ PlayersForm.addEventListener('submit', function (event) {
     let isValid = true;
 
     if (Player1Name.value.trim() === "") {
+        Exceptions.style.display = "block";
         Exceptions.textContent = "Player1 Name is required";
         isValid = false;
     }
     if (Player2Name.value.trim() === "") {
+        Exceptions.style.display = "block";
         Exceptions.textContent = "Player2 Name is required";
         isValid = false;
     }
     if ((Player1Name.value.trim() === "") && (Player2Name.value.trim() === "")) {
+        Exceptions.style.display = "block";
         Exceptions.textContent = "Player names are required";
         isValid = false;
     }
@@ -70,13 +73,16 @@ PlayersForm.addEventListener('submit', function (event) {
     Player2 = Player2Name.value;
 
     if (isValid) {
-        alert("Game Start");
-        document.getElementById("GameArea").style.display = "flex";
-        // edocument.getElementById("GameArea").style.display = (el.style.display === "flex") ? "none" : "flex";
+        // alert("Game Start");
         PlayersForm.style.display = "none";
-        Turn.innerHTML = `Your turn <span style="color:red">${Player1}</span>`;
-        Player1Score.textContent = `${Player1} ${Score1}`;
-        Player2Score.textContent = `${Player2} ${Score2}`;
+        document.getElementById("loader").style.display = "block";
+        setTimeout(() => {
+            document.getElementById("loader").style.display = "none";
+            Turn.innerHTML = `Your turn <span style="color:red">${Player1}</span>`;
+            document.getElementById("GameArea").style.display = "flex";
+            Player1Score.textContent = `${Player1} ${Score1}`;
+            Player2Score.textContent = `${Player2} ${Score2}`;
+        }, 2000);
     }
 });
 
@@ -123,12 +129,16 @@ function checkFinalWinner() {
 
 // 🔄 Reset Everything
 function HalfReset() {
-    Round = 6;
-    document.getElementById("FinalArea").style.display = "none";
-    document.getElementById("GameArea").style.display = "flex";
-    Score1 = 0;
-    Score2 = 0;
-    subReset();
+    document.getElementById("loader").style.display = "block";
+    setTimeout(() => {
+        Round = 6;
+        document.getElementById("FinalArea").style.display = "none";
+        document.getElementById("GameArea").style.display = "flex";
+        Score1 = 0;
+        Score2 = 0;
+        document.getElementById("loader").style.display = "none"
+        subReset();
+    }, 1000);
 }
 
 // ❌⭕ Check for Win or Draw
