@@ -52,7 +52,7 @@ function checkTheWinner() {
     if ((GameBox[0].innerHTML === "⭕") && (GameBox[4].innerHTML === "⭕") && (GameBox[8].innerHTML === "⭕")) {
         console.log("Winner is ⭕");
         Score2++;
-        winnerShow.textContent = `Winner is 2${Player2}`;
+        winnerShow.textContent = `Winner is ${Player2}`;
         winnerShow.style.display = "block";
         setTimeout(() => {
             winnerShow.style.display = "none";
@@ -63,7 +63,7 @@ function checkTheWinner() {
     else if ((GameBox[0].innerHTML === "❌") && (GameBox[4].innerHTML === "❌") && (GameBox[8].innerHTML === "❌")) {
         console.log("Winner is ❌");
         Score1++;
-        winnerShow.textContent = `Winner is 1${Player1}`;
+        winnerShow.textContent = `Winner is ${Player1}`;
         winnerShow.style.display = "block";
         setTimeout(() => {
             winnerShow.style.display = "none";
@@ -74,7 +74,7 @@ function checkTheWinner() {
     else if ((GameBox[2].innerHTML === "❌") && (GameBox[4].innerHTML === "❌") && (GameBox[6].innerHTML === "❌")) {
         console.log("Winner is ❌");
         Score1++;
-        winnerShow.textContent = `Winner is 1${Player1}`;
+        winnerShow.textContent = `Winner is ${Player1}`;
         winnerShow.style.display = "block";
         setTimeout(() => {
             winnerShow.style.display = "none";
@@ -86,7 +86,7 @@ function checkTheWinner() {
         console.log("Winner is ⭕");
         Score2++;
         winnerShow.style.display = "block";
-        winnerShow.textContent = `Winner is 2${Player2}`;
+        winnerShow.textContent = `Winner is ${Player2}`;
         setTimeout(() => {
             winnerShow.style.display = "none";
         }, 1000);
@@ -96,7 +96,7 @@ function checkTheWinner() {
     else if ((GameBox[1].innerHTML === "⭕") && (GameBox[4].innerHTML === "⭕") && (GameBox[7].innerHTML === "⭕")) {
         console.log("Winner is ⭕");
         Score2++;
-        winnerShow.textContent = `Winner is 2${Player2}`;
+        winnerShow.textContent = `Winner is ${Player2}`;
         winnerShow.style.display = "block";
         setTimeout(() => {
             winnerShow.style.display = "none";
@@ -108,7 +108,7 @@ function checkTheWinner() {
         console.log("Winner is ❌");
         Score1++;
         winnerShow.style.display = "block";
-        winnerShow.textContent = `Winner is 1${Player1}`;
+        winnerShow.textContent = `Winner is ${Player1}`;
         setTimeout(() => {
             winnerShow.style.display = "none";
         }, 1000);
@@ -118,7 +118,7 @@ function checkTheWinner() {
     else if ((GameBox[0].innerHTML === "⭕") && (GameBox[3].innerHTML === "⭕") && (GameBox[6].innerHTML === "⭕")) {
         console.log("Winner is ⭕");
         Score2++;
-        winnerShow.textContent = `Winner is 2${Player2}`;
+        winnerShow.textContent = `Winner is ${Player2}`;
         winnerShow.style.display = "block";
         setTimeout(() => {
             winnerShow.style.display = "none";
@@ -129,7 +129,7 @@ function checkTheWinner() {
     else if ((GameBox[0].innerHTML === "❌") && (GameBox[3].innerHTML === "❌") && (GameBox[6].innerHTML === "❌")) {
         console.log("Winner is ❌");
         Score1++;
-        winnerShow.textContent = `Winner is 1${Player1}`;
+        winnerShow.textContent = `Winner is ${Player1}`;
         winnerShow.style.display = "block";
         setTimeout(() => {
             winnerShow.style.display = "none";
@@ -140,7 +140,7 @@ function checkTheWinner() {
     else if ((GameBox[2].innerHTML === "⭕") && (GameBox[5].innerHTML === "⭕") && (GameBox[8].innerHTML === "⭕")) {
         console.log("Winner is ⭕");
         Score2++;
-        winnerShow.textContent = `Winner is 2${Player2}`;
+        winnerShow.textContent = `Winner is ${Player2}`;
         winnerShow.style.display = "block";
         setTimeout(() => {
             winnerShow.style.display = "none";
@@ -151,7 +151,7 @@ function checkTheWinner() {
     else if ((GameBox[2].innerHTML === "❌") && (GameBox[5].innerHTML === "❌") && (GameBox[8].innerHTML === "❌")) {
         console.log("Winner is ❌");
         Score1++;
-        winnerShow.textContent = `Winner is 1${Player1}`;
+        winnerShow.textContent = `Winner is ${Player1}`;
         winnerShow.style.display = "block";
         setTimeout(() => {
             winnerShow.style.display = "none";
@@ -162,7 +162,7 @@ function checkTheWinner() {
     else if ((GameBox[0].innerHTML === "⭕") && (GameBox[1].innerHTML === "⭕") && (GameBox[2].innerHTML === "⭕")) {
         console.log("Winner is ⭕");
         Score2++;
-        winnerShow.textContent = `Winner is 2${Player2}`;
+        winnerShow.textContent = `Winner is ${Player2}`;
         winnerShow.style.display = "block";
         setTimeout(() => {
             winnerShow.style.display = "none";
@@ -173,7 +173,7 @@ function checkTheWinner() {
     else if ((GameBox[0].innerHTML === "❌") && (GameBox[1].innerHTML === "❌") && (GameBox[2].innerHTML === "❌")) {
         console.log("Winner is ❌");
         Score1++;
-        winnerShow.textContent = `Winner is 1${Player1}`;
+        winnerShow.textContent = `Winner is ${Player1}`;
         winnerShow.style.display = "block";
         setTimeout(() => {
             winnerShow.style.display = "none";
@@ -184,7 +184,7 @@ function checkTheWinner() {
     else if ((GameBox[3].innerHTML === "⭕") && (GameBox[4].innerHTML === "⭕") && (GameBox[5].innerHTML === "⭕")) {
         console.log("Winner is ⭕");
         Score2++;
-        winnerShow.textContent = `Winner is 2${Player2}`;
+        winnerShow.textContent = `Winner is ${Player2}`;
         winnerShow.style.display = "block";
         setTimeout(() => {
             winnerShow.style.display = "none";
@@ -195,7 +195,7 @@ function checkTheWinner() {
     else if ((GameBox[3].innerHTML === "❌") && (GameBox[4].innerHTML === "❌") && (GameBox[5].innerHTML === "❌")) {
         console.log("Winner is ❌");
         Score1++;
-        winnerShow.textContent = `Winner is 1${Player1}`;
+        winnerShow.textContent = `Winner is ${Player1}`;
         winnerShow.style.display = "block";
         setTimeout(() => {
             winnerShow.style.display = "none";
@@ -206,7 +206,7 @@ function checkTheWinner() {
     else if ((GameBox[6].innerHTML === "⭕") && (GameBox[7].innerHTML === "⭕") && (GameBox[8].innerHTML === "⭕")) {
         console.log("Winner is ⭕");
         Score2++;
-        winnerShow.textContent = `Winner is 2${Player2}`;
+        winnerShow.textContent = `Winner is ${Player2}`;
         winnerShow.style.display = "block";
         setTimeout(() => {
             winnerShow.style.display = "none";
@@ -217,7 +217,7 @@ function checkTheWinner() {
     else if ((GameBox[6].innerHTML === "❌") && (GameBox[7].innerHTML === "❌") && (GameBox[8].innerHTML === "❌")) {
         console.log("Winner is ❌");
         Score1++;
-        winnerShow.textContent = `Winner is 1${Player1}`;
+        winnerShow.textContent = `Winner is ${Player1}`;
         winnerShow.style.display = "block";
         setTimeout(() => {
             winnerShow.style.display = "none";
