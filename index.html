@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tick Tack Toe</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 10px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1,
+        h2 {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+            margin-top: 10px;
+        }
+
+        .GameArea {
+            display: grid;
+            grid-template-columns: repeat(3, 8vw);
+            grid-template-rows: repeat(3, 8vw);
+            aspect-ratio: 1 / 1;
+            margin-left: 10%;
+        }
+
+        .GameArea>div {
+            /* border: 2px solid black; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .GameArea>div:nth-child(1) {
+
+            /* border-bottom: 2px solid black; */
+            border-right: 2px solid black;
+        }
+
+        .GameArea>div:nth-child(2) {
+            border-right: 2px solid black;
+        }
+
+        .GameArea>div:nth-child(4) {
+            border-bottom: 2px solid black;
+            border-top: 2px solid black;
+        }
+
+        .GameArea>div:nth-child(5) {
+            border: 2px solid black;
+        }
+
+        .GameArea>div:nth-child(6) {
+            border-bottom: 2px solid black;
+            border-top: 2px solid black;
+        }
+
+        .GameArea>div:nth-child(8) {
+
+            border-left: 2px solid black;
+        }
+
+        .GameArea>div:nth-child(9) {
+
+            border-left: 2px solid black;
+        }
+
+        .box:hover {
+            cursor: pointer;
+            background-color: aqua;
+        }
+
+        .ResultArea {
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .ScoreCard {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .ScoreCard>h2 {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .ScoreCard>h2:nth-child(1) {
+            background-color: red;
+            margin-right: 5px;
+        }
+
+        .ScoreCard>h2:nth-child(2) {
+            background-color: rgb(51, 0, 255);
+            margin-left: 5px;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .Player {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .Player input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            font-size: 1rem;
+        }
+
+        .Register {
+            width: 100%;
+            background: #28a745;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .Register:hover {
+            background: #218838;
+        }
+
+        .final-container {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .final-container h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .final-container h2 {
+            font-size: 1.5rem;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .trophy {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .play-again {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .play-again:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 480px) {
+            .GameArea {
+                max-width: 40vw;
+                margin-left: 40%;
+            }
+
+            .GameArea>div {
+                font-size: 2rem;
+            }
+
+            .ScoreCard>h2 {
+                font-size: 0.9rem;
+            }
+
+            .final-container h1 {
+                font-size: 1.5rem;
+            }
+
+            .final-container h2 {
+                font-size: 1.2rem;
+            }
+
+            .trophy {
+                font-size: 3rem;
+            }
+
+            .play-again {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Game Area -->
+    <div class="main" id="GameArea" style="display: none;">
+        <h1>Tick Tack Toe! Round Of 5</h1>
+        <h2 id="RoundShow">Round&nbsp5</h2>
+        <h2 id="Turn"></h2>
+        <div class="GameArea">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="ResultArea" id="Result">
+            <h2 id="winnerShow"></h2>
+            <div class="ScoreCard">
+                <h2 id="Player1Score"></h2>
+                <h2 id="Player2Score"></h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Winner Area -->
+    <div class="final-container" id="FinalArea" style="display: none;">
+        <div class="trophy">🏆</div>
+        <h1>Game Over!</h1>
+        <h2 id="FinalWinner">Suman Wins the Match!</h2>
+        <button class="play-again" onclick="HalfReset()">Play Again</button>
+    </div>
+
+    <!-- Player Registration Form -->
+    <form id="PlayersForm" class="Form" style="display: block;">
+        <h2>Welcome To Tick Tack Toe!</h2>
+        <div class="Player">
+            <label for="Player1">Name of Player1</label>
+            <input type="text" name="Player1" id="Player1Name" placeholder="Enter your name Player">
+        </div>
+        <div class="Player">
+            <label for="Player2">Name of player2</label>
+            <input type="text" name="Player2" id="Player2Name" placeholder="Enter your name Player">
+        </div>
+        <p id="Exceptions"></p>
+        <button class="Register" id="submitBtn" type="submit">Submit</button>
+    </form>
+
+    <!-- Your Game Logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>
