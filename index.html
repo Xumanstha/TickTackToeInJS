@@ -8,6 +8,8 @@
     <style>
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
@@ -47,6 +49,7 @@
             grid-template-rows: repeat(3, 8vw);
             aspect-ratio: 1 / 1;
             margin-left: 10%;
+            width: 90vw;
         }
 
         .GameArea>div {
@@ -58,38 +61,29 @@
             font-weight: bold;
         }
 
-        .GameArea>div:nth-child(1) {
-
-            /* border-bottom: 2px solid black; */
-            border-right: 2px solid black;
-        }
-
         .GameArea>div:nth-child(2) {
-            border-right: 2px solid black;
+            border-left: 5px solid black;
+            border-right: 5px solid black;
         }
 
         .GameArea>div:nth-child(4) {
-            border-bottom: 2px solid black;
-            border-top: 2px solid black;
+            border-bottom: 5px solid black;
+            border-top: 5px solid black;
         }
 
         .GameArea>div:nth-child(5) {
-            border: 2px solid black;
+            border: 5px solid black;
         }
 
         .GameArea>div:nth-child(6) {
-            border-bottom: 2px solid black;
-            border-top: 2px solid black;
+            border-bottom: 5px solid black;
+            border-top: 5px solid black;
         }
 
         .GameArea>div:nth-child(8) {
 
-            border-left: 2px solid black;
-        }
-
-        .GameArea>div:nth-child(9) {
-
-            border-left: 2px solid black;
+            border-left: 5px solid black;
+            border-right: 5px solid black;
         }
 
         .box:hover {
