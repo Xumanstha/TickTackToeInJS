@@ -88,7 +88,7 @@ PlayersForm.addEventListener('submit', function (event) {
 
 // ✅ Round Reset
 function subReset() {
-    if (Round > 0) {
+    if (Round > 1) {
         GameBox.forEach(box => {
             box.innerHTML = "";
         });
@@ -158,185 +158,218 @@ function checkDrawOrWin() {
 }
 
 // 🧠 Winner Checker (Long version, not refactored)
-function checkTheWinner() {
+// function checkTheWinner() {
 
-    if ((GameBox[0].innerHTML === "⭕") && (GameBox[4].innerHTML === "⭕") && (GameBox[8].innerHTML === "⭕")) {
-        console.log("Winner is ⭕");
-        Score2++;
-        winnerShow.textContent = `Winner is ${Player2}`;
-        winnerShow.style.display = "block";
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
+//     if ((GameBox[0].innerHTML === "⭕") && (GameBox[4].innerHTML === "⭕") && (GameBox[8].innerHTML === "⭕")) {
+//         console.log("Winner is ⭕");
+//         Score2++;
+//         winnerShow.textContent = `Winner is ${Player2}`;
+//         winnerShow.style.display = "block";
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else if ((GameBox[0].innerHTML === "❌") && (GameBox[4].innerHTML === "❌") && (GameBox[8].innerHTML === "❌")) {
+//         console.log("Winner is ❌");
+//         Score1++;
+//         winnerShow.textContent = `Winner is ${Player1}`;
+//         winnerShow.style.display = "block";
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else if ((GameBox[2].innerHTML === "❌") && (GameBox[4].innerHTML === "❌") && (GameBox[6].innerHTML === "❌")) {
+//         console.log("Winner is ❌");
+//         Score1++;
+//         winnerShow.textContent = `Winner is ${Player1}`;
+//         winnerShow.style.display = "block";
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else if ((GameBox[2].innerHTML === "⭕") && (GameBox[4].innerHTML === "⭕") && (GameBox[6].innerHTML === "⭕")) {
+//         console.log("Winner is ⭕");
+//         Score2++;
+//         winnerShow.style.display = "block";
+//         winnerShow.textContent = `Winner is ${Player2}`;
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else if ((GameBox[1].innerHTML === "⭕") && (GameBox[4].innerHTML === "⭕") && (GameBox[7].innerHTML === "⭕")) {
+//         console.log("Winner is ⭕");
+//         Score2++;
+//         winnerShow.textContent = `Winner is ${Player2}`;
+//         winnerShow.style.display = "block";
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else if ((GameBox[1].innerHTML === "❌") && (GameBox[4].innerHTML === "❌") && (GameBox[7].innerHTML === "❌")) {
+//         console.log("Winner is ❌");
+//         Score1++;
+//         winnerShow.style.display = "block";
+//         winnerShow.textContent = `Winner is ${Player1}`;
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else if ((GameBox[0].innerHTML === "⭕") && (GameBox[3].innerHTML === "⭕") && (GameBox[6].innerHTML === "⭕")) {
+//         console.log("Winner is ⭕");
+//         Score2++;
+//         winnerShow.textContent = `Winner is ${Player2}`;
+//         winnerShow.style.display = "block";
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else if ((GameBox[0].innerHTML === "❌") && (GameBox[3].innerHTML === "❌") && (GameBox[6].innerHTML === "❌")) {
+//         console.log("Winner is ❌");
+//         Score1++;
+//         winnerShow.textContent = `Winner is ${Player1}`;
+//         winnerShow.style.display = "block";
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else if ((GameBox[2].innerHTML === "⭕") && (GameBox[5].innerHTML === "⭕") && (GameBox[8].innerHTML === "⭕")) {
+//         console.log("Winner is ⭕");
+//         Score2++;
+//         winnerShow.textContent = `Winner is ${Player2}`;
+//         winnerShow.style.display = "block";
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else if ((GameBox[2].innerHTML === "❌") && (GameBox[5].innerHTML === "❌") && (GameBox[8].innerHTML === "❌")) {
+//         console.log("Winner is ❌");
+//         Score1++;
+//         winnerShow.textContent = `Winner is ${Player1}`;
+//         winnerShow.style.display = "block";
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else if ((GameBox[0].innerHTML === "⭕") && (GameBox[1].innerHTML === "⭕") && (GameBox[2].innerHTML === "⭕")) {
+//         console.log("Winner is ⭕");
+//         Score2++;
+//         winnerShow.textContent = `Winner is ${Player2}`;
+//         winnerShow.style.display = "block";
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else if ((GameBox[0].innerHTML === "❌") && (GameBox[1].innerHTML === "❌") && (GameBox[2].innerHTML === "❌")) {
+//         console.log("Winner is ❌");
+//         Score1++;
+//         winnerShow.textContent = `Winner is ${Player1}`;
+//         winnerShow.style.display = "block";
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else if ((GameBox[3].innerHTML === "⭕") && (GameBox[4].innerHTML === "⭕") && (GameBox[5].innerHTML === "⭕")) {
+//         console.log("Winner is ⭕");
+//         Score2++;
+//         winnerShow.textContent = `Winner is ${Player2}`;
+//         winnerShow.style.display = "block";
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else if ((GameBox[3].innerHTML === "❌") && (GameBox[4].innerHTML === "❌") && (GameBox[5].innerHTML === "❌")) {
+//         console.log("Winner is ❌");
+//         Score1++;
+//         winnerShow.textContent = `Winner is ${Player1}`;
+//         winnerShow.style.display = "block";
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else if ((GameBox[6].innerHTML === "⭕") && (GameBox[7].innerHTML === "⭕") && (GameBox[8].innerHTML === "⭕")) {
+//         console.log("Winner is ⭕");
+//         Score2++;
+//         winnerShow.textContent = `Winner is ${Player2}`;
+//         winnerShow.style.display = "block";
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else if ((GameBox[6].innerHTML === "❌") && (GameBox[7].innerHTML === "❌") && (GameBox[8].innerHTML === "❌")) {
+//         console.log("Winner is ❌");
+//         Score1++;
+//         winnerShow.textContent = `Winner is ${Player1}`;
+//         winnerShow.style.display = "block";
+//         setTimeout(() => {
+//             winnerShow.style.display = "none";
+//         }, 1000);
+//         subReset();
+//         return false;
+//     }
+//     else {
+//         return true;
+//     }
+// }
+
+
+function checkTheWinner() {
+    const winPatterns = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+        [0, 4, 8], [2, 4, 6]             // Diagonals
+    ];
+
+    for (let pattern of winPatterns) {
+        const [a, b, c] = pattern;
+        const val = GameBox[a].innerHTML;
+
+        if (val && val === GameBox[b].innerHTML && val === GameBox[c].innerHTML) {
+            console.log(`Winner is ${val}`);
+            if (val === "❌") {
+                Score1++;
+                winnerShow.textContent = `Winner is ${Player1}`;
+            } else {
+                Score2++;
+                winnerShow.textContent = `Winner is ${Player2}`;
+            }
+            winnerShow.style.display = "block";
+            setTimeout(() => {
+                winnerShow.style.display = "none";
+            }, 1000);
+            subReset();
+            return false;
+        }
     }
-    else if ((GameBox[0].innerHTML === "❌") && (GameBox[4].innerHTML === "❌") && (GameBox[8].innerHTML === "❌")) {
-        console.log("Winner is ❌");
-        Score1++;
-        winnerShow.textContent = `Winner is ${Player1}`;
-        winnerShow.style.display = "block";
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
-    }
-    else if ((GameBox[2].innerHTML === "❌") && (GameBox[4].innerHTML === "❌") && (GameBox[6].innerHTML === "❌")) {
-        console.log("Winner is ❌");
-        Score1++;
-        winnerShow.textContent = `Winner is ${Player1}`;
-        winnerShow.style.display = "block";
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
-    }
-    else if ((GameBox[2].innerHTML === "⭕") && (GameBox[4].innerHTML === "⭕") && (GameBox[6].innerHTML === "⭕")) {
-        console.log("Winner is ⭕");
-        Score2++;
-        winnerShow.style.display = "block";
-        winnerShow.textContent = `Winner is ${Player2}`;
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
-    }
-    else if ((GameBox[1].innerHTML === "⭕") && (GameBox[4].innerHTML === "⭕") && (GameBox[7].innerHTML === "⭕")) {
-        console.log("Winner is ⭕");
-        Score2++;
-        winnerShow.textContent = `Winner is ${Player2}`;
-        winnerShow.style.display = "block";
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
-    }
-    else if ((GameBox[1].innerHTML === "❌") && (GameBox[4].innerHTML === "❌") && (GameBox[7].innerHTML === "❌")) {
-        console.log("Winner is ❌");
-        Score1++;
-        winnerShow.style.display = "block";
-        winnerShow.textContent = `Winner is ${Player1}`;
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
-    }
-    else if ((GameBox[0].innerHTML === "⭕") && (GameBox[3].innerHTML === "⭕") && (GameBox[6].innerHTML === "⭕")) {
-        console.log("Winner is ⭕");
-        Score2++;
-        winnerShow.textContent = `Winner is ${Player2}`;
-        winnerShow.style.display = "block";
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
-    }
-    else if ((GameBox[0].innerHTML === "❌") && (GameBox[3].innerHTML === "❌") && (GameBox[6].innerHTML === "❌")) {
-        console.log("Winner is ❌");
-        Score1++;
-        winnerShow.textContent = `Winner is ${Player1}`;
-        winnerShow.style.display = "block";
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
-    }
-    else if ((GameBox[2].innerHTML === "⭕") && (GameBox[5].innerHTML === "⭕") && (GameBox[8].innerHTML === "⭕")) {
-        console.log("Winner is ⭕");
-        Score2++;
-        winnerShow.textContent = `Winner is ${Player2}`;
-        winnerShow.style.display = "block";
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
-    }
-    else if ((GameBox[2].innerHTML === "❌") && (GameBox[5].innerHTML === "❌") && (GameBox[8].innerHTML === "❌")) {
-        console.log("Winner is ❌");
-        Score1++;
-        winnerShow.textContent = `Winner is ${Player1}`;
-        winnerShow.style.display = "block";
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
-    }
-    else if ((GameBox[0].innerHTML === "⭕") && (GameBox[1].innerHTML === "⭕") && (GameBox[2].innerHTML === "⭕")) {
-        console.log("Winner is ⭕");
-        Score2++;
-        winnerShow.textContent = `Winner is ${Player2}`;
-        winnerShow.style.display = "block";
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
-    }
-    else if ((GameBox[0].innerHTML === "❌") && (GameBox[1].innerHTML === "❌") && (GameBox[2].innerHTML === "❌")) {
-        console.log("Winner is ❌");
-        Score1++;
-        winnerShow.textContent = `Winner is ${Player1}`;
-        winnerShow.style.display = "block";
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
-    }
-    else if ((GameBox[3].innerHTML === "⭕") && (GameBox[4].innerHTML === "⭕") && (GameBox[5].innerHTML === "⭕")) {
-        console.log("Winner is ⭕");
-        Score2++;
-        winnerShow.textContent = `Winner is ${Player2}`;
-        winnerShow.style.display = "block";
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
-    }
-    else if ((GameBox[3].innerHTML === "❌") && (GameBox[4].innerHTML === "❌") && (GameBox[5].innerHTML === "❌")) {
-        console.log("Winner is ❌");
-        Score1++;
-        winnerShow.textContent = `Winner is ${Player1}`;
-        winnerShow.style.display = "block";
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
-    }
-    else if ((GameBox[6].innerHTML === "⭕") && (GameBox[7].innerHTML === "⭕") && (GameBox[8].innerHTML === "⭕")) {
-        console.log("Winner is ⭕");
-        Score2++;
-        winnerShow.textContent = `Winner is ${Player2}`;
-        winnerShow.style.display = "block";
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
-    }
-    else if ((GameBox[6].innerHTML === "❌") && (GameBox[7].innerHTML === "❌") && (GameBox[8].innerHTML === "❌")) {
-        console.log("Winner is ❌");
-        Score1++;
-        winnerShow.textContent = `Winner is ${Player1}`;
-        winnerShow.style.display = "block";
-        setTimeout(() => {
-            winnerShow.style.display = "none";
-        }, 1000);
-        subReset();
-        return false;
-    }
-    else {
-        return true;
-    }
+    return true;
 }
+
